@@ -43,7 +43,7 @@ const DataTable = () => {
   
   useEffect(() => {
     if (isError) {
-      if (Array.isArray((error as any).data.error)) {
+      if (Array.isArray((error as any).data?.error)) {
         (error as any).data.error.forEach((el: any) =>
           toast.error(el.message, {
             position: "top-right",
@@ -56,7 +56,7 @@ const DataTable = () => {
       }
     }
   }, [isError, error])
-  
+
   const handleDelete = () => {
     deleteUser({ id: selected });
   };
