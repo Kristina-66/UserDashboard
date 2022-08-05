@@ -12,7 +12,7 @@ const RequireUser = ({ allowedRoles }: { allowedRoles: string[] }) => {
   const { data: user } = userApi.endpoints.getMe.useQuery(null, {
     skip: !logged_in,
   });
-
+  console.log(user?.role);
   const location = useLocation();
 
   if (logged_in && !user) {

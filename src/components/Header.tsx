@@ -44,7 +44,6 @@ const Header = () => {
 
   useEffect(() => {
     
-
     if (isError) {
       if (Array.isArray((error as any).data.error)) {
         (error as any).data.error.forEach((el: any) =>
@@ -91,6 +90,7 @@ const Header = () => {
               </>
             )}
             {user && (
+              <>
               <LoadingButton
                 sx={{ backgroundColor: "#eee" }}
                 onClick={onLogoutHandler}
@@ -98,7 +98,6 @@ const Header = () => {
               >
                 Logout
               </LoadingButton>
-            )}
             <Box sx={{ ml: 4 }}>
               <Tooltip title="Profile" onClick={() => navigate("/profile")}>
                 <IconButton sx={{ p: 0 }}>
@@ -111,6 +110,8 @@ const Header = () => {
                 </IconButton>
               </Tooltip>
             </Box>
+            </>
+            )}
           </Box>
         </Toolbar>
       </Container>
