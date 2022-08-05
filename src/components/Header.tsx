@@ -92,7 +92,7 @@ const Header = () => {
             {user && (
               <>
               <LoadingButton
-                sx={{ backgroundColor: "#eee" }}
+                sx={{ backgroundColor: "#5d8c9b" }}
                 onClick={onLogoutHandler}
                 loading={isLoading}
               >
