@@ -22,7 +22,7 @@ import { styled } from "@mui/material/styles";
 const LoadingButton = styled(_LoadingButton)`
   padding: 0.4rem;
   background-color: #ffffff;
-  color: #5d8c9b;
+  color: #2363eb;
   font-weight: 500;
 
   &:hover {
@@ -65,7 +65,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#5d8c9b" }}>
       <Container maxWidth="lg">
         <Toolbar>
           <Typography
