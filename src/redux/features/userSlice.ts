@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUser } from '../api/types';
 
 type Status = 'block' | 'active'
+type Roles = 'admin' | 'user'
 interface INormolizedUsers {
   id: string;
   name: string;
   email: string;
+  role: Roles;
   createdAt: Date;
   lastLogin: Date;
   status: Status;
@@ -40,6 +42,7 @@ export const userSlice = createSlice({
           email: i.email,
           createdAt: i.createdAt,
           lastLogin: i.lastLogin,
+          role: i.role,
           status: i.status,
         } as INormolizedUsers;
       });
