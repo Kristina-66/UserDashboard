@@ -148,29 +148,9 @@ const RegisterPage = () => {
               borderRadius: 2,
             }}
           >
-            <FormInput
-              name="name"
-              label="Full Name"
-              sx={{
-                color: "black",
-              }}
-            />
-            <FormInput
-              name="email"
-              label="Email Address"
-              type="email"
-              sx={{
-                color: "black",
-              }}
-            />
-            <FormInput
-              name="password"
-              label="Password"
-              type="password"
-              sx={{
-                color: "black",
-              }}
-            />
+            <FormInput name="name" label="Full Name" />
+            <FormInput name="email" label="Email Address" type="email" />
+            <FormInput name="password" label="Password" type="password" />
             <FormInput
               name="passwordConfirm"
               label="Confirm Password"
