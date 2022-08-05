@@ -10,7 +10,7 @@ const BASE_URL = process.env.REACT_APP_SERVER_ENDPOINT as string;
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${BASE_URL}/api/auth/`,
+    baseUrl: `${BASE_URL}api/auth/`,
   }),
   endpoints: (builder) => ({
     registerUser: builder.mutation<IGenericResponse, RegisterInput>({

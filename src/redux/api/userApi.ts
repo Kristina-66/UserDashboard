@@ -10,7 +10,7 @@ export const userApi = createApi({
   reducerPath: 'userApi',
   tagTypes: ['Users'],
   baseQuery: fetchBaseQuery({
-    baseUrl: `${BASE_URL}/api/users/`,
+    baseUrl: `${BASE_URL}api/users/`,
   }),
   endpoints: (builder) => ({
     getMe: builder.query<IUser, null>({
