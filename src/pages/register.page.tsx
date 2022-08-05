@@ -14,11 +14,11 @@ import { styled } from "@mui/material/styles";
 
 const LoadingButton = styled(_LoadingButton)`
   padding: 0.6rem 0;
-  background-color: #rgb(136 190 207);
-  color: dark;
+  background-color: #3d7587;
+  color: #ffffff;
   font-weight: 500;
   &:hover {
-    background-color: #ebc22c;
+    background-color: #274c58;
     transform: translateY(-2px);
   }
 `;
@@ -121,11 +121,12 @@ const RegisterPage = () => {
           textAlign="center"
           component="h1"
           sx={{
-            color: "#f9d13e",
+            color: "#acc8d1",
             fontSize: { xs: "2rem", md: "3rem" },
             fontWeight: 600,
             mb: 2,
             letterSpacing: 1,
+            
           }}
         >
           Welcome!

@@ -14,12 +14,12 @@ import { styled } from "@mui/material/styles";
 
 const LoadingButton = styled(_LoadingButton)`
   padding: 0.6rem 0;
-  background-color: #f9d13e;
-  color: #2363eb;
+  background-color: #3d7587;
+  color: #ffffff;
   font-weight: 500;
 
   &:hover {
-    background-color: #ebc22c;
+    background-color: #274c58;
     transform: translateY(-2px);
   }
 `;

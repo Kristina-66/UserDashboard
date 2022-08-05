@@ -26,7 +26,7 @@ const LoadingButton = styled(_LoadingButton)`
   font-weight: 500;
 
   &:hover {
-    background-color: #acc8d1;
+    background-color: #ffffff;
     transform: translateY(-2px);
   }
 `;
@@ -39,11 +39,9 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.userState.user);
 
-  const [logoutUser, { isLoading,  error, isError }] =
-    useLogoutUserMutation();
+  const [logoutUser, { isLoading, error, isError }] = useLogoutUserMutation();
 
   useEffect(() => {
-    
     if (isError) {
       if (Array.isArray((error as any).data.error)) {
         (error as any).data.error.forEach((el: any) =>
@@ -91,26 +89,22 @@ const Header = () => {
             )}
             {user && (
               <>
-              <LoadingButton
-                sx={{ backgroundColor: "#acc8d1" }}
-                onClick={onLogoutHandler}
-                loading={isLoading}
-              >
-                Logout
-              </LoadingButton>
-            <Box sx={{ ml: 4 }}>
-              <Tooltip title="Profile" onClick={() => navigate("/profile")}>
-                <IconButton sx={{ p: 0 }}>
-                  {!isLoadingUser && (
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
-                  )}
-                </IconButton>
-              </Tooltip>
-            </Box>
-            </>
+                <LoadingButton onClick={onLogoutHandler} loading={isLoading}>
+                  Logout
+                </LoadingButton>
+                <Box sx={{ ml: 4 }}>
+                  <Tooltip title="Profile" onClick={() => navigate("/profile")}>
+                    <IconButton sx={{ p: 0 }}>
+                      {!isLoadingUser && (
+                        <Avatar
+                          alt="Remy Sharp"
+                          src="/static/images/avatar/2.jpg"
+                        />
+                      )}
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+              </>
             )}
           </Box>
         </Toolbar>
