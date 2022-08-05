@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { userApi } from "../redux/api/userApi";
 
 import {
   AppBar,
@@ -31,6 +32,10 @@ const LoadingButton = styled(_LoadingButton)`
 `;
 
 const Header = () => {
+  const { isLoading: isLoadingUser } = userApi.endpoints.getMe.useQuery(null, {
+    refetchOnMountOrArgChange: true,
+  });
+
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.userState.user);
 
@@ -38,7 +43,7 @@ const Header = () => {
     useLogoutUserMutation();
 
   useEffect(() => {
-    if (isSuccess || user?.status === 'block') {
+    if (isSuccess || user?.status === "block") {
       navigate("/login");
     }
 
@@ -46,17 +51,17 @@ const Header = () => {
       if (Array.isArray((error as any).data.error)) {
         (error as any).data.error.forEach((el: any) =>
           toast.error(el.message, {
-            position: "top-right",
+            position: "bottom-right",
           })
         );
       } else {
         toast.error((error as any).data.message, {
-          position: "top-right",
+          position: "bottom-right",
         });
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading, user]);
+  }, [isLoading]);
 
   const onLogoutHandler = async () => {
     logoutUser();
@@ -97,12 +102,14 @@ const Header = () => {
               </LoadingButton>
             )}
             <Box sx={{ ml: 4 }}>
-              <Tooltip
-                title="Post settings"
-                onClick={() => navigate("/profile")}
-              >
+              <Tooltip title="Profile" onClick={() => navigate("/profile")}>
                 <IconButton sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  {!isLoadingUser && (
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                  )}
                 </IconButton>
               </Tooltip>
             </Box>

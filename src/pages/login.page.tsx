@@ -62,19 +62,21 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success("You successfully logged in");
+      toast.success("You successfully logged in", {
+        position: "bottom-right",
+      });
       navigate("/");
     }
     if (isError) {
       if (Array.isArray((error as any).data.error)) {
         (error as any).data.error.forEach((el: any) =>
           toast.error(el.message, {
-            position: "top-right",
+            position: "bottom-right",
           })
         );
       } else {
         toast.error((error as any).data.message, {
-          position: "top-right",
+          position: "bottom-right",
         });
       }
     }

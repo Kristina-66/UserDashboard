@@ -63,7 +63,9 @@ const RegisterPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success("User registered successfully");
+      toast.success("User registered successfully", {
+        position: "bottom-right",
+      });
       navigate("/login");
     }
 
@@ -72,12 +74,12 @@ const RegisterPage = () => {
       if (Array.isArray((error as any).data.error)) {
         (error as any).data.error.forEach((el: any) =>
           toast.error(el.message, {
-            position: "top-right",
+            position: "bottom-right",
           })
         );
       } else {
         toast.error((error as any).data.message, {
-          position: "top-right",
+          position: "bottom-right",
         });
       }
     }
@@ -126,7 +128,7 @@ const RegisterPage = () => {
             letterSpacing: 1,
           }}
         >
-          Welcome to CodevoWeb!
+          Welcome!
         </Typography>
         <Typography component="h2" sx={{ color: "#e5e7eb", mb: 2 }}>
           Sign Up To Get Started!
