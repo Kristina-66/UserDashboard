@@ -106,7 +106,7 @@ const RegisterPage = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#2363eb",
+        backgroundColor: "#5d8c9b",
       }}
     >
       <Box
@@ -130,7 +130,7 @@ const RegisterPage = () => {
         >
           Welcome!
         </Typography>
-        <Typography component="h2" sx={{ color: "#e5e7eb", mb: 2 }}>
+        <Typography component="h2" sx={{ color: "#acc8d1", mb: 2 }}>
           Sign Up To Get Started!
         </Typography>
 
@@ -143,7 +143,7 @@ const RegisterPage = () => {
             maxWidth="27rem"
             width="100%"
             sx={{
-              backgroundColor: "#e5e7eb",
+              backgroundColor: "#acc8d1eb",
               p: { xs: "1rem", sm: "2rem" },
               borderRadius: 2,
             }}

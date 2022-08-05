@@ -9,7 +9,7 @@ const ProfilePage = () => {
     <Container maxWidth="lg">
       <Box
         sx={{
-          backgroundColor: "#ece9e9",
+          backgroundColor: "#5d8c9b",
           mt: "2rem",
           height: "15rem",
           display: "flex",

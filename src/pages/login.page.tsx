@@ -103,7 +103,7 @@ const LoginPage = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#2363eb",
+        backgroundColor: "#5d8c9b",
       }}
     >
       <Box
@@ -130,7 +130,7 @@ const LoginPage = () => {
         <Typography
           variant="body1"
           component="h2"
-          sx={{ color: "#e5e7eb", mb: 2 }}
+          sx={{ color: "#acc8d1", mb: 2 }}
         >
           Login to have access!
         </Typography>
