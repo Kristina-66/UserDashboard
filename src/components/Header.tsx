@@ -39,13 +39,11 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.userState.user);
 
-  const [logoutUser, { isLoading, isSuccess, error, isError }] =
+  const [logoutUser, { isLoading,  error, isError }] =
     useLogoutUserMutation();
 
   useEffect(() => {
-    if (isSuccess || user?.status === "block") {
-      navigate("/login");
-    }
+    
 
     if (isError) {
       if (Array.isArray((error as any).data.error)) {
