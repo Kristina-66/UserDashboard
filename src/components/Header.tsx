@@ -22,11 +22,11 @@ import { styled } from "@mui/material/styles";
 const LoadingButton = styled(_LoadingButton)`
   padding: 0.4rem;
   background-color: #ffffff;
-  color: #2363eb;
+  color: #5d8c9b;
   font-weight: 500;
 
   &:hover {
-    background-color: #e1f3ff;
+    background-color: #acc8d1;
     transform: translateY(-2px);
   }
 `;

@@ -118,7 +118,7 @@ const LoginPage = () => {
           textAlign="center"
           component="h1"
           sx={{
-            color: "#f9d13e",
+            color: "#acc8d1",
             fontWeight: 600,
             fontSize: { xs: "2rem", md: "3rem" },
             mb: 2,
