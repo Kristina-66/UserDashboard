@@ -39,9 +39,14 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.userState.user);
 
-  const [logoutUser, { isLoading, error, isError }] = useLogoutUserMutation();
+  const [logoutUser, { isLoading, isSuccess, error, isError }] = useLogoutUserMutation();
 
   useEffect(() => {
+
+    if (isSuccess) {
+      navigate("/login");
+    }
+
     if (isError) {
       if (Array.isArray((error as any).data.error)) {
         (error as any).data.error.forEach((el: any) =>
