@@ -4,7 +4,6 @@ import { userApi } from "../redux/api/userApi";
 
 import {
   AppBar,
-  Avatar,
   Box,
   Container,
   IconButton,
@@ -13,36 +12,21 @@ import {
   Typography,
 } from "@mui/material";
 import { toast } from "react-toastify";
-import { LoadingButton as _LoadingButton } from "@mui/lab";
 import { useAppSelector } from "../redux/store";
 import { useLogoutUserMutation } from "../redux/api/authApi";
-
-import { styled } from "@mui/material/styles";
-
-const LoadingButton = styled(_LoadingButton)`
-  padding: 0.4rem;
-  background-color: #ffffff;
-  color: #000000;
-  font-weight: 500;
-
-  &:hover {
-    background-color: #ffffff;
-    transform: translateY(-2px);
-  }
-`;
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Header = () => {
-  const { isLoading: isLoadingUser } = userApi.endpoints.getMe.useQuery(null, {
-    refetchOnMountOrArgChange: true,
-  });
-
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.userState.user);
 
-  const [logoutUser, { isLoading, isSuccess, error, isError }] = useLogoutUserMutation();
+  const [logoutUser, { isLoading, isSuccess, error, isError }] =
+    useLogoutUserMutation();
 
   useEffect(() => {
-
     if (isSuccess) {
       navigate("/login");
     }
@@ -68,7 +52,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#5d8c9b" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#969cbb" }}>
       <Container maxWidth="lg">
         <Toolbar>
           <Typography
@@ -76,39 +60,54 @@ const Header = () => {
             onClick={() => navigate("/")}
             sx={{ cursor: "pointer" }}
           >
-            Task 4
+            User Dashboard
           </Typography>
           <Box display="flex" sx={{ ml: "auto" }}>
             {!user && (
               <>
-                <LoadingButton
-                  sx={{ mr: 2 }}
-                  onClick={() => navigate("/register")}
-                >
-                  SignUp
-                </LoadingButton>
-                <LoadingButton onClick={() => navigate("/login")}>
-                  Login
-                </LoadingButton>
+                <Tooltip title="SignUp" onClick={() => navigate("/register")}>
+                  <IconButton
+                    aria-label="Account"
+                    size="large"
+                    sx={{ color: "white" }}
+                  >
+                    {" "}
+                    <PersonAddIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Login" onClick={() => navigate("/login")}>
+                  <IconButton
+                    aria-label="Account"
+                    size="large"
+                    sx={{ color: "white" }}
+                  >
+                    {" "}
+                    <PersonIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
               </>
             )}
             {user && (
               <>
-                <LoadingButton onClick={onLogoutHandler} loading={isLoading}>
-                  Logout
-                </LoadingButton>
-                <Box sx={{ ml: 4 }}>
-                  <Tooltip title="Profile" onClick={() => navigate("/profile")}>
-                    <IconButton sx={{ p: 0 }}>
-                      {!isLoadingUser && (
-                        <Avatar
-                          alt="Remy Sharp"
-                          src="/static/images/avatar/2.jpg"
-                        />
-                      )}
-                    </IconButton>
-                  </Tooltip>
-                </Box>
+                <Tooltip title="Profile" onClick={() => navigate("/profile")}>
+                  <IconButton
+                    aria-label="Account"
+                    size="large"
+                    sx={{ color: "white" }}
+                  >
+                    {" "}
+                    <AccountCircleIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Logout" onClick={onLogoutHandler}>
+                  <IconButton
+                    aria-label="Logout"
+                    size="large"
+                    sx={{ color: "white" }}
+                  >
+                    <CancelIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
               </>
             )}
           </Box>

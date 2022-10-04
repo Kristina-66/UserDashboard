@@ -1,39 +1,62 @@
 import { Box, Container, Typography } from "@mui/material";
+import { Image } from "mui-image";
 
 import { useAppSelector } from "../redux/store";
+import Avatar from "../assets/avatar.png";
 
 const ProfilePage = () => {
   const user = useAppSelector((state) => state.userState.user);
 
   return (
     <Container maxWidth="lg">
-      <Box
-        sx={{
-          backgroundColor: "#5d8c9b",
-          mt: "2rem",
-          height: "15rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography
-          variant="h2"
-          component="h1"
-          sx={{ color: "#1f1e1e", fontWeight: 500 }}
-        >
-          Profile Page
-        </Typography>
-      </Box>
       <Box sx={{ mt: 2 }}>
-        <Typography gutterBottom>
-          <strong>Id:</strong> {user?._id}
+        <Image src={Avatar} fit="scale-down" height={300} />
+      </Box>
+
+      <Box sx={{ mt: 2 }}>
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.primary"
+          gutterBottom
+        >
+          {user?.name}
         </Typography>
-        <Typography gutterBottom>
-          <strong>Full Name:</strong> {user?.name}
+        <Typography
+          variant="h6"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          {user?.email}
         </Typography>
-        <Typography gutterBottom>
-          <strong>Email Address:</strong> {user?.email}
+        <Typography
+          variant="h6"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          <strong>Id: </strong>
+          {user?._id}
+        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          <strong>Status: </strong>
+          {user?.status}
+        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          <strong>Role: </strong>
+          {user?.role}
         </Typography>
       </Box>
     </Container>

@@ -12,7 +12,7 @@ interface EnhancedTableToolbarProps {
   selected: string[];
   handleDelete: () => void;
   handleStatusUpdate: () => void;
-  handleStatusUpdateActive : () => void;
+  handleStatusUpdateActive: () => void;
 }
 
 const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {

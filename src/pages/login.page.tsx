@@ -14,19 +14,18 @@ import { styled } from "@mui/material/styles";
 
 const LoadingButton = styled(_LoadingButton)`
   padding: 0.6rem 0;
-  background-color: #3d7587;
+  background-color: #55586a;
   color: #ffffff;
   font-weight: 500;
 
   &:hover {
-    background-color: #274c58;
+    background-color: #2c2e37;
     transform: translateY(-2px);
   }
 `;
 
 const LinkItem = styled(Link)`
   text-decoration: none;
-  color: #2363eb;
   &:hover {
     text-decoration: underline;
   }
@@ -103,7 +102,7 @@ const LoginPage = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#5d8c9b",
+        backgroundColor: "#969cbb",
       }}
     >
       <Box
@@ -118,7 +117,7 @@ const LoginPage = () => {
           textAlign="center"
           component="h1"
           sx={{
-            color: "#acc8d1",
+            color: "white",
             fontWeight: 600,
             fontSize: { xs: "2rem", md: "3rem" },
             mb: 2,
@@ -130,7 +129,7 @@ const LoginPage = () => {
         <Typography
           variant="body1"
           component="h2"
-          sx={{ color: "#acc8d1", mb: 2 }}
+          sx={{ color: "white", mb: 2 }}
         >
           Login to have access!
         </Typography>
@@ -144,16 +143,26 @@ const LoginPage = () => {
             maxWidth="27rem"
             width="100%"
             sx={{
-              backgroundColor: "#e5e7eb",
+              backgroundColor: "#e2e2e2",
               p: { xs: "1rem", sm: "2rem" },
               borderRadius: 2,
             }}
           >
-            <FormInput name="email" label="Email Address" type="email" />
+            <FormInput
+              name="email"
+              label="Email Address"
+              type="email"
+              sx={{ color: "#2c2e37" }}
+            />
             <FormInput name="password" label="Password" type="password" />
 
-            <Typography sx={{ fontSize: "0.9rem", mb: "1rem" }}>
-              Need an account? <LinkItem to="/register">Sign Up Here</LinkItem>
+            <Typography
+              sx={{ fontSize: "0.9rem", mb: "1rem", color: "#2c2e37" }}
+            >
+              Need an account?{" "}
+              <LinkItem to="/register" sx={{ color: "#bb3458" }}>
+                Sign Up Here
+              </LinkItem>
             </Typography>
 
             <LoadingButton

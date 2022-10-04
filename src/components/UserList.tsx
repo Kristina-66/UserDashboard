@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
@@ -39,8 +39,11 @@ const DataTable = () => {
   const allUsers = useAppSelector((state) => state.userState.users);
   const [updateStatus] = useUpdateStatusMutation();
   const [updateStatusActiv] = useUpdateStatusMutation();
-  const { isLoading, isError, error } = userApi.endpoints.getAllUsers.useQuery([], {refetchOnMountOrArgChange: true});
-  
+  const { isLoading, isError, error } = userApi.endpoints.getAllUsers.useQuery(
+    [],
+    { refetchOnMountOrArgChange: true }
+  );
+
   useEffect(() => {
     if (isError) {
       if (Array.isArray((error as any).data?.error)) {
@@ -55,7 +58,7 @@ const DataTable = () => {
         });
       }
     }
-  }, [isError, error])
+  }, [isError, error]);
 
   const handleDelete = () => {
     deleteUser({ id: selected });

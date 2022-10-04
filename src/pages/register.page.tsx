@@ -14,18 +14,17 @@ import { styled } from "@mui/material/styles";
 
 const LoadingButton = styled(_LoadingButton)`
   padding: 0.6rem 0;
-  background-color: #3d7587;
+  background-color: #55586a;
   color: #ffffff;
   font-weight: 500;
   &:hover {
-    background-color: #274c58;
+    background-color: #2c2e37;
     transform: translateY(-2px);
   }
 `;
 
 const LinkItem = styled(Link)`
   text-decoration: none;
-  color: #2363eb;
   &:hover {
     text-decoration: underline;
   }
@@ -106,7 +105,7 @@ const RegisterPage = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#5d8c9b",
+        backgroundColor: "#969cbb",
       }}
     >
       <Box
@@ -121,17 +120,16 @@ const RegisterPage = () => {
           textAlign="center"
           component="h1"
           sx={{
-            color: "#acc8d1",
+            color: "white",
             fontSize: { xs: "2rem", md: "3rem" },
             fontWeight: 600,
             mb: 2,
             letterSpacing: 1,
-            
           }}
         >
           Welcome!
         </Typography>
-        <Typography component="h2" sx={{ color: "#acc8d1", mb: 2 }}>
+        <Typography component="h2" sx={{ color: "white", mb: 2 }}>
           Sign Up To Get Started!
         </Typography>
 
@@ -144,7 +142,7 @@ const RegisterPage = () => {
             maxWidth="27rem"
             width="100%"
             sx={{
-              backgroundColor: "#acc8d1eb",
+              backgroundColor: "#e2e2e2",
               p: { xs: "1rem", sm: "2rem" },
               borderRadius: 2,
             }}
@@ -159,7 +157,7 @@ const RegisterPage = () => {
             />
             <Typography sx={{ fontSize: "0.9rem", mb: "1rem" }}>
               Already have an account?{" "}
-              <LinkItem to="/login">Login Here</LinkItem>
+              <LinkItem to="/login" sx={{ color: "#bb3458" }}>Login Here</LinkItem>
             </Typography>
 
             <LoadingButton
